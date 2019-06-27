@@ -21,7 +21,7 @@
   </table>
   <div class="comp-form">
     <form #formPro="ngForm" (submit)="onSubmit(formPro)">
-      <!-- <input type="hidden" name="pID" #pID="ngModel" [(ngModel)]="servicePro.formProizvod.pID"> -->
+      <input type="hidden" name="pID" #pID="ngModel" [(ngModel)]="servicePro.formProizvod.pID">
       <div class="f-group">
         <label>Naziv:</label>
         <input name="pNaziv" #pNaziv="ngModel" [(ngModel)]="servicePro.formProizvod.pNaziv" class="form-control">
