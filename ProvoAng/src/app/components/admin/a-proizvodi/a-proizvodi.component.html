@@ -20,21 +20,23 @@
     </tbody>
   </table>
   <div class="comp-form">
-    <form #formPro="ngForm" (submit)="onSubmit(formPro)">
-      <input type="hidden" name="pID" #pID="ngModel" [(ngModel)]="servicePro.formProizvod.pID">
+    <form #formPro="ngForm" (submit)="onSubmit(formPro)" autocomplete="off">
       <div class="f-group">
         <label>Naziv:</label>
-        <input name="pNaziv" #pNaziv="ngModel" [(ngModel)]="servicePro.formProizvod.pNaziv" class="form-control">
+        <input name="pNaziv" #pNaziv="ngModel" [(ngModel)]="servicePro.formProizvod.pNaziv" class="form-control" required>
+        <div *ngIf="pNaziv.invalid && pNaziv.touched">Prazno</div>
       </div>
       <div class="f-group">
         <label>Cijena:</label>
-        <input name="pCijena" #pCijena="ngModel" [(ngModel)]="servicePro.formProizvod.pCijena" class="form-control">
+        <input name="pCijena" #pCijena="ngModel" [(ngModel)]="servicePro.formProizvod.pCijena" class="form-control" type="number" required>
+        <div *ngIf="pCijena.invalid && pCijena.touched">Prazno</div>
       </div>
       <div class="f-group">
         <label>Stanje:</label>
-        <input name="pStanje" #pStanje="ngModel" [(ngModel)]="servicePro.formProizvod.pStanje" class="form-control">
+        <input name="pStanje" #pStanje="ngModel" [(ngModel)]="servicePro.formProizvod.pStanje" class="form-control" required>
+        <div *ngIf="pStanje.invalid && pStanje.touched">Prazno</div>
       </div>
-      <button type="submit">UBACI PROIZVOD</button>
+      <button type="submit" [disabled]="formPro.invalid">UBACI PROIZVOD</button>
     </form>
   </div>
 </div>
