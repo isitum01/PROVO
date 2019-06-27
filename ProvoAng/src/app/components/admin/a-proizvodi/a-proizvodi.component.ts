@@ -13,7 +13,7 @@ export class AProizvodiComponent implements OnInit {
   constructor(private servicePro: ProizvodiService) { }
 
   ngOnInit() {
-   // this.servicePro.getProizvod();
+    this.servicePro.getProizvod();
     this.resetForm();
   }
   resetForm(form?: NgForm) {
@@ -28,23 +28,18 @@ export class AProizvodiComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (form.value.pID == null)//{
+    if (form.value.pID == null){
       this.insertProizvod(form);
-     // this.servicePro.getProizvod();}
+    }
     else
       this.updateProizvod(form);
-      //console.log("sad radi");
-     // this.servicePro.getProizvod();
-      this.servicePro.getProizvod();
   }
 
   insertProizvod(form: NgForm) {
     this.servicePro.postProizvod(form.value).subscribe(res => {
-      //this.servicePro.getProizvod();
+      this.servicePro.getProizvod();
       this.resetForm(form);
     });
-    console.log("Inserted");
-    //this.servicePro.getProizvod();
   }
   editProizvod(pro: Proizvod) {
     this.servicePro.formProizvod = Object.assign({},pro);
@@ -52,15 +47,13 @@ export class AProizvodiComponent implements OnInit {
   updateProizvod(form: NgForm) {
     this.servicePro.putProizvod(form.value).subscribe(res => {
       this.resetForm(form);
-     // this.servicePro.getProizvod();
+      this.servicePro.getProizvod();
     });
     console.log("Updated");
   }
   removeProizvod(id: number){
     this.servicePro.deleteProizvod(id).subscribe(res =>{
-     // this.servicePro.getProizvod();
+    this.servicePro.getProizvod();
     });
-    
-    console.log("Deleted");
   }
 }
