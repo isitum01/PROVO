@@ -211,3 +211,6 @@ ProvoAPI/.vs/ProvoAPI/v15/.suo
 *.pdb
 ProvoAPI/ProvoAPI/obj/Debug/ProvoAPI.pdb
 ProvoAPI/ProvoAPI/obj/Debug/ProvoAPI.pdb
+ProvoAng/package.json
+ProvoAng/package-lock.json
+ProvoAng/angular.json
