@@ -52,30 +52,58 @@ a{
     flex-basis: 85%;
 }
 .comp-container{
+    border: 2px solid green;
     display: flex;
 }
 .comp-table{
-    flex-basis: 65%;
+    border: 2px solid yellow;
+    flex-basis: 70%;
+    /* border-radius: 1rem; */
+    /* display: flex; */
+    /* justify-content: center; */
     /* margin: 1rem; */
-    border-collapse: collapse;
 }
-table, th, td{
-    border: 1px solid black;
+table{
+    display: table;
+    border-radius: 1rem;
+    border-style: hidden; 
+    box-shadow: 0 0 0 1px;
+    margin: 1rem auto;
+    border-collapse: collapse;
+    width: 80%;
+    overflow: hidden;
+}
+thead{
+    overflow: hidden;
+    height: 2rem;
+    /* background-color: rgb(111, 111, 255);  */
+}
+thead tr{
+    z-index: -1;
+    background-color: rgb(111, 111, 255);
+    height: 2.5rem;
+    border-radius: 1rem;
+    border-style: hidden; 
+    box-shadow: 0 0 0 1px;
+}
+th, td{
+    /* border: 1px solid black; */
     text-align: center;
     cursor: pointer;
-}
-th{
-    background-color: rgb(111, 111, 255);
 }
 tr:hover{
     background-color: rgb(111, 111, 255);
 }
 .comp-form{
+    border: 2px solid red;
     /* margin: 1rem auto; */
-    border: 2px solid black;
     flex-basis: 30%;
 }
 form{
+    border: 2px solid green;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
 }
