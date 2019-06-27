@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProizvodiService } from 'src/app/services/proizvodi.service';
 import { NgForm } from '@angular/forms';
 import { Proizvod } from 'src/app/models/proizvod.model';
+import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 @Component({
   selector: 'app-a-proizvodi',
@@ -9,6 +10,8 @@ import { Proizvod } from 'src/app/models/proizvod.model';
   styleUrls: ['./a-proizvodi.component.css']
 })
 export class AProizvodiComponent implements OnInit {
+
+  tempID = null;
 
   constructor(private servicePro: ProizvodiService) { }
 
@@ -28,11 +31,13 @@ export class AProizvodiComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (form.value.pID == null){
+    //if (form.value.pID == null)
+    if(this.tempID == null)
       this.insertProizvod(form);
-    }
-    else
+    else{
+      form.value.pID = this.tempID;
       this.updateProizvod(form);
+    }
   }
 
   insertProizvod(form: NgForm) {
@@ -42,6 +47,7 @@ export class AProizvodiComponent implements OnInit {
     });
   }
   editProizvod(pro: Proizvod) {
+    this.tempID = pro.pID;
     this.servicePro.formProizvod = Object.assign({},pro);
   }
   updateProizvod(form: NgForm) {
