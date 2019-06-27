@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProvoDBModelStoreContainer" CdmEntityContainer="DBModel">
+    <EntitySetMapping Name="Korisnicis">
+      <EntityTypeMapping TypeName="ProvoDBModel.Korisnici">
+        <MappingFragment StoreEntitySet="Korisnici">
+          <ScalarProperty Name="kID" ColumnName="kID" />
+          <ScalarProperty Name="kIme" ColumnName="kIme" />
+          <ScalarProperty Name="kPrezime" ColumnName="kPrezime" />
+          <ScalarProperty Name="kEmail" ColumnName="kEmail" />
+          <ScalarProperty Name="kPass" ColumnName="kPass" />
+          <ScalarProperty Name="kDrzava" ColumnName="kDrzava" />
+          <ScalarProperty Name="kGrad" ColumnName="kGrad" />
+          <ScalarProperty Name="kUlica" ColumnName="kUlica" />
+          <ScalarProperty Name="kBroj" ColumnName="kBroj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kosaricas">
+      <EntityTypeMapping TypeName="ProvoDBModel.Kosarica">
+        <MappingFragment StoreEntitySet="Kosarica">
+          <ScalarProperty Name="nID" ColumnName="nID" />
+          <ScalarProperty Name="pID" ColumnName="pID" />
+          <ScalarProperty Name="proKolicina" ColumnName="proKolicina" />
+          <ScalarProperty Name="proIznos" ColumnName="proIznos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Narudzbes">
+      <EntityTypeMapping TypeName="ProvoDBModel.Narudzbe">
+        <MappingFragment StoreEntitySet="Narudzbe">
+          <ScalarProperty Name="nID" ColumnName="nID" />
+          <ScalarProperty Name="kID" ColumnName="kID" />
+          <ScalarProperty Name="popID" ColumnName="popID" />
+          <ScalarProperty Name="nTotal" ColumnName="nTotal" />
+          <ScalarProperty Name="nVrijeme" ColumnName="nVrijeme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Popustis">
+      <EntityTypeMapping TypeName="ProvoDBModel.Popusti">
+        <MappingFragment StoreEntitySet="Popusti">
+          <ScalarProperty Name="popID" ColumnName="popID" />
+          <ScalarProperty Name="popKod" ColumnName="popKod" />
+          <ScalarProperty Name="popIznos" ColumnName="popIznos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proizvodis">
+      <EntityTypeMapping TypeName="ProvoDBModel.Proizvodi">
+        <MappingFragment StoreEntitySet="Proizvodi">
+          <ScalarProperty Name="pID" ColumnName="pID" />
+          <ScalarProperty Name="pNaziv" ColumnName="pNaziv" />
+          <ScalarProperty Name="pCijena" ColumnName="pCijena" />
+          <ScalarProperty Name="pStanje" ColumnName="pStanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
