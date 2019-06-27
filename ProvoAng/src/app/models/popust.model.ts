@@ -1,5 +1,5 @@
 export class Popust {
-    popID: number;
+    popID?: number;
     popKod: string;
     popIznos: number;
 }
