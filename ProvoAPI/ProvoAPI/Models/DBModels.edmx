@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProvoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Korisnici">
+          <Key>
+            <PropertyRef Name="kID" />
+          </Key>
+          <Property Name="kID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kIme" Type="varchar" MaxLength="50" />
+          <Property Name="kPrezime" Type="varchar" MaxLength="50" />
+          <Property Name="kEmail" Type="varchar" MaxLength="50" />
+          <Property Name="kPass" Type="varchar" MaxLength="50" />
+          <Property Name="kDrzava" Type="varchar" MaxLength="50" />
+          <Property Name="kGrad" Type="varchar" MaxLength="50" />
+          <Property Name="kUlica" Type="varchar" MaxLength="50" />
+          <Property Name="kBroj" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kosarica">
+          <Key>
+            <PropertyRef Name="nID" />
+            <PropertyRef Name="pID" />
+          </Key>
+          <Property Name="nID" Type="int" Nullable="false" />
+          <Property Name="pID" Type="int" Nullable="false" />
+          <Property Name="proKolicina" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="proIznos" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Narudzbe">
+          <Key>
+            <PropertyRef Name="nID" />
+          </Key>
+          <Property Name="nID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kID" Type="int" />
+          <Property Name="popID" Type="int" />
+          <Property Name="nTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="nVrijeme" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Popusti">
+          <Key>
+            <PropertyRef Name="popID" />
+          </Key>
+          <Property Name="popID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="popKod" Type="varchar" MaxLength="50" />
+          <Property Name="popIznos" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="Proizvodi">
+          <Key>
+            <PropertyRef Name="pID" />
+          </Key>
+          <Property Name="pID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pNaziv" Type="varchar" MaxLength="50" />
+          <Property Name="pCijena" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="pStanje" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <Association Name="FK_Kosarica_Narudzbe">
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="1" />
+          <End Role="Kosarica" Type="Self.Kosarica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narudzbe">
+              <PropertyRef Name="nID" />
+            </Principal>
+            <Dependent Role="Kosarica">
+              <PropertyRef Name="nID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kosarica_Proizvodi">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="Kosarica" Type="Self.Kosarica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="pID" />
+            </Principal>
+            <Dependent Role="Kosarica">
+              <PropertyRef Name="pID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narudzbe_Korisnici">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="kID" />
+            </Principal>
+            <Dependent Role="Narudzbe">
+              <PropertyRef Name="kID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narudzbe_Popusti">
+          <End Role="Popusti" Type="Self.Popusti" Multiplicity="0..1" />
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Popusti">
+              <PropertyRef Name="popID" />
+            </Principal>
+            <Dependent Role="Narudzbe">
+              <PropertyRef Name="popID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProvoDBModelStoreContainer">
+          <EntitySet Name="Korisnici" EntityType="Self.Korisnici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kosarica" EntityType="Self.Kosarica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Narudzbe" EntityType="Self.Narudzbe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Popusti" EntityType="Self.Popusti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proizvodi" EntityType="Self.Proizvodi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Kosarica_Narudzbe" Association="Self.FK_Kosarica_Narudzbe">
+            <End Role="Narudzbe" EntitySet="Narudzbe" />
+            <End Role="Kosarica" EntitySet="Kosarica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kosarica_Proizvodi" Association="Self.FK_Kosarica_Proizvodi">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="Kosarica" EntitySet="Kosarica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narudzbe_Korisnici" Association="Self.FK_Narudzbe_Korisnici">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Narudzbe" EntitySet="Narudzbe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narudzbe_Popusti" Association="Self.FK_Narudzbe_Popusti">
+            <End Role="Popusti" EntitySet="Popusti" />
+            <End Role="Narudzbe" EntitySet="Narudzbe" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProvoDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Korisnici">
+          <Key>
+            <PropertyRef Name="kID" />
+          </Key>
+          <Property Name="kID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kIme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kPrezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kPass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kDrzava" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kGrad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kUlica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kBroj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Narudzbes" Relationship="Self.FK_Narudzbe_Korisnici" FromRole="Korisnici" ToRole="Narudzbe" />
+        </EntityType>
+        <EntityType Name="Kosarica">
+          <Key>
+            <PropertyRef Name="nID" />
+            <PropertyRef Name="pID" />
+          </Key>
+          <Property Name="nID" Type="Int32" Nullable="false" />
+          <Property Name="pID" Type="Int32" Nullable="false" />
+          <Property Name="proKolicina" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="proIznos" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Narudzbe" Relationship="Self.FK_Kosarica_Narudzbe" FromRole="Kosarica" ToRole="Narudzbe" />
+          <NavigationProperty Name="Proizvodi" Relationship="Self.FK_Kosarica_Proizvodi" FromRole="Kosarica" ToRole="Proizvodi" />
+        </EntityType>
+        <EntityType Name="Narudzbe">
+          <Key>
+            <PropertyRef Name="nID" />
+          </Key>
+          <Property Name="nID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kID" Type="Int32" />
+          <Property Name="popID" Type="Int32" />
+          <Property Name="nTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="nVrijeme" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Korisnici" Relationship="Self.FK_Narudzbe_Korisnici" FromRole="Narudzbe" ToRole="Korisnici" />
+          <NavigationProperty Name="Kosaricas" Relationship="Self.FK_Kosarica_Narudzbe" FromRole="Narudzbe" ToRole="Kosarica" />
+          <NavigationProperty Name="Popusti" Relationship="Self.FK_Narudzbe_Popusti" FromRole="Narudzbe" ToRole="Popusti" />
+        </EntityType>
+        <EntityType Name="Popusti">
+          <Key>
+            <PropertyRef Name="popID" />
+          </Key>
+          <Property Name="popID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="popKod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="popIznos" Type="Decimal" Precision="5" Scale="2" />
+          <NavigationProperty Name="Narudzbes" Relationship="Self.FK_Narudzbe_Popusti" FromRole="Popusti" ToRole="Narudzbe" />
+        </EntityType>
+        <EntityType Name="Proizvodi">
+          <Key>
+            <PropertyRef Name="pID" />
+          </Key>
+          <Property Name="pID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pNaziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pCijena" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="pStanje" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Kosaricas" Relationship="Self.FK_Kosarica_Proizvodi" FromRole="Proizvodi" ToRole="Kosarica" />
+        </EntityType>
+        <Association Name="FK_Narudzbe_Korisnici">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="kID" />
+            </Principal>
+            <Dependent Role="Narudzbe">
+              <PropertyRef Name="kID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kosarica_Narudzbe">
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="1" />
+          <End Role="Kosarica" Type="Self.Kosarica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narudzbe">
+              <PropertyRef Name="nID" />
+            </Principal>
+            <Dependent Role="Kosarica">
+              <PropertyRef Name="nID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kosarica_Proizvodi">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="Kosarica" Type="Self.Kosarica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="pID" />
+            </Principal>
+            <Dependent Role="Kosarica">
+              <PropertyRef Name="pID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narudzbe_Popusti">
+          <End Role="Popusti" Type="Self.Popusti" Multiplicity="0..1" />
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Popusti">
+              <PropertyRef Name="popID" />
+            </Principal>
+            <Dependent Role="Narudzbe">
+              <PropertyRef Name="popID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Korisnicis" EntityType="Self.Korisnici" />
+          <EntitySet Name="Kosaricas" EntityType="Self.Kosarica" />
+          <EntitySet Name="Narudzbes" EntityType="Self.Narudzbe" />
+          <EntitySet Name="Popustis" EntityType="Self.Popusti" />
+          <EntitySet Name="Proizvodis" EntityType="Self.Proizvodi" />
+          <AssociationSet Name="FK_Narudzbe_Korisnici" Association="Self.FK_Narudzbe_Korisnici">
+            <End Role="Korisnici" EntitySet="Korisnicis" />
+            <End Role="Narudzbe" EntitySet="Narudzbes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kosarica_Narudzbe" Association="Self.FK_Kosarica_Narudzbe">
+            <End Role="Narudzbe" EntitySet="Narudzbes" />
+            <End Role="Kosarica" EntitySet="Kosaricas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kosarica_Proizvodi" Association="Self.FK_Kosarica_Proizvodi">
+            <End Role="Proizvodi" EntitySet="Proizvodis" />
+            <End Role="Kosarica" EntitySet="Kosaricas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narudzbe_Popusti" Association="Self.FK_Narudzbe_Popusti">
+            <End Role="Popusti" EntitySet="Popustis" />
+            <End Role="Narudzbe" EntitySet="Narudzbes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProvoDBModelStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="Korisnicis">
+            <EntityTypeMapping TypeName="ProvoDBModel.Korisnici">
+              <MappingFragment StoreEntitySet="Korisnici">
+                <ScalarProperty Name="kID" ColumnName="kID" />
+                <ScalarProperty Name="kIme" ColumnName="kIme" />
+                <ScalarProperty Name="kPrezime" ColumnName="kPrezime" />
+                <ScalarProperty Name="kEmail" ColumnName="kEmail" />
+                <ScalarProperty Name="kPass" ColumnName="kPass" />
+                <ScalarProperty Name="kDrzava" ColumnName="kDrzava" />
+                <ScalarProperty Name="kGrad" ColumnName="kGrad" />
+                <ScalarProperty Name="kUlica" ColumnName="kUlica" />
+                <ScalarProperty Name="kBroj" ColumnName="kBroj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kosaricas">
+            <EntityTypeMapping TypeName="ProvoDBModel.Kosarica">
+              <MappingFragment StoreEntitySet="Kosarica">
+                <ScalarProperty Name="nID" ColumnName="nID" />
+                <ScalarProperty Name="pID" ColumnName="pID" />
+                <ScalarProperty Name="proKolicina" ColumnName="proKolicina" />
+                <ScalarProperty Name="proIznos" ColumnName="proIznos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Narudzbes">
+            <EntityTypeMapping TypeName="ProvoDBModel.Narudzbe">
+              <MappingFragment StoreEntitySet="Narudzbe">
+                <ScalarProperty Name="nID" ColumnName="nID" />
+                <ScalarProperty Name="kID" ColumnName="kID" />
+                <ScalarProperty Name="popID" ColumnName="popID" />
+                <ScalarProperty Name="nTotal" ColumnName="nTotal" />
+                <ScalarProperty Name="nVrijeme" ColumnName="nVrijeme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Popustis">
+            <EntityTypeMapping TypeName="ProvoDBModel.Popusti">
+              <MappingFragment StoreEntitySet="Popusti">
+                <ScalarProperty Name="popID" ColumnName="popID" />
+                <ScalarProperty Name="popKod" ColumnName="popKod" />
+                <ScalarProperty Name="popIznos" ColumnName="popIznos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proizvodis">
+            <EntityTypeMapping TypeName="ProvoDBModel.Proizvodi">
+              <MappingFragment StoreEntitySet="Proizvodi">
+                <ScalarProperty Name="pID" ColumnName="pID" />
+                <ScalarProperty Name="pNaziv" ColumnName="pNaziv" />
+                <ScalarProperty Name="pCijena" ColumnName="pCijena" />
+                <ScalarProperty Name="pStanje" ColumnName="pStanje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
