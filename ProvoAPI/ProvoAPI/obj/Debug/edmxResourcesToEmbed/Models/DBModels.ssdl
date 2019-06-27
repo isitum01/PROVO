@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProvoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Korisnici">
+    <Key>
+      <PropertyRef Name="kID" />
+    </Key>
+    <Property Name="kID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kIme" Type="varchar" MaxLength="50" />
+    <Property Name="kPrezime" Type="varchar" MaxLength="50" />
+    <Property Name="kEmail" Type="varchar" MaxLength="50" />
+    <Property Name="kPass" Type="varchar" MaxLength="50" />
+    <Property Name="kDrzava" Type="varchar" MaxLength="50" />
+    <Property Name="kGrad" Type="varchar" MaxLength="50" />
+    <Property Name="kUlica" Type="varchar" MaxLength="50" />
+    <Property Name="kBroj" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Kosarica">
+    <Key>
+      <PropertyRef Name="nID" />
+      <PropertyRef Name="pID" />
+    </Key>
+    <Property Name="nID" Type="int" Nullable="false" />
+    <Property Name="pID" Type="int" Nullable="false" />
+    <Property Name="proKolicina" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="proIznos" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Narudzbe">
+    <Key>
+      <PropertyRef Name="nID" />
+    </Key>
+    <Property Name="nID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kID" Type="int" />
+    <Property Name="popID" Type="int" />
+    <Property Name="nTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="nVrijeme" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Popusti">
+    <Key>
+      <PropertyRef Name="popID" />
+    </Key>
+    <Property Name="popID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="popKod" Type="varchar" MaxLength="50" />
+    <Property Name="popIznos" Type="decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="Proizvodi">
+    <Key>
+      <PropertyRef Name="pID" />
+    </Key>
+    <Property Name="pID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pNaziv" Type="varchar" MaxLength="50" />
+    <Property Name="pCijena" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="pStanje" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <Association Name="FK_Kosarica_Narudzbe">
+    <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="1" />
+    <End Role="Kosarica" Type="Self.Kosarica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Narudzbe">
+        <PropertyRef Name="nID" />
+      </Principal>
+      <Dependent Role="Kosarica">
+        <PropertyRef Name="nID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kosarica_Proizvodi">
+    <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+    <End Role="Kosarica" Type="Self.Kosarica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvodi">
+        <PropertyRef Name="pID" />
+      </Principal>
+      <Dependent Role="Kosarica">
+        <PropertyRef Name="pID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Narudzbe_Korisnici">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="kID" />
+      </Principal>
+      <Dependent Role="Narudzbe">
+        <PropertyRef Name="kID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Narudzbe_Popusti">
+    <End Role="Popusti" Type="Self.Popusti" Multiplicity="0..1" />
+    <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Popusti">
+        <PropertyRef Name="popID" />
+      </Principal>
+      <Dependent Role="Narudzbe">
+        <PropertyRef Name="popID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProvoDBModelStoreContainer">
+    <EntitySet Name="Korisnici" EntityType="Self.Korisnici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kosarica" EntityType="Self.Kosarica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Narudzbe" EntityType="Self.Narudzbe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Popusti" EntityType="Self.Popusti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proizvodi" EntityType="Self.Proizvodi" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Kosarica_Narudzbe" Association="Self.FK_Kosarica_Narudzbe">
+      <End Role="Narudzbe" EntitySet="Narudzbe" />
+      <End Role="Kosarica" EntitySet="Kosarica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kosarica_Proizvodi" Association="Self.FK_Kosarica_Proizvodi">
+      <End Role="Proizvodi" EntitySet="Proizvodi" />
+      <End Role="Kosarica" EntitySet="Kosarica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Narudzbe_Korisnici" Association="Self.FK_Narudzbe_Korisnici">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Narudzbe" EntitySet="Narudzbe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Narudzbe_Popusti" Association="Self.FK_Narudzbe_Popusti">
+      <End Role="Popusti" EntitySet="Popusti" />
+      <End Role="Narudzbe" EntitySet="Narudzbe" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
