@@ -1,5 +1,5 @@
 export class Narudzba {
-    nID: number;
+    nID?: number;
     kID: number;
     popID: number;
     nTotal: number;
