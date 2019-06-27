@@ -1,0 +1,39 @@
+<form #formKor="ngForm" (submit)="onSubmit(formKor)">
+  <div class="f-group">
+    <label>ID</label>
+    <input name="kID" #kID="ngModel" [(ngModel)]="serviceKor.formKorisnik.kID">
+  </div>
+  <div class="f-group">
+    <label>kIme</label>
+    <input name="kIme" #kIme="ngModel" [(ngModel)]="serviceKor.formKorisnik.kIme">
+  </div>
+  <div class="f-group">
+    <label>kPrezime</label>
+    <input name="kPrezime" #kPrezime="ngModel" [(ngModel)]="serviceKor.formKorisnik.kPrezime">
+  </div>
+  <div class="f-group">
+    <label>kEmail</label>
+    <input name="kEmail" #kEmail="ngModel" [(ngModel)]="serviceKor.formKorisnik.kEmail">
+  </div>
+  <div class="f-group">
+    <label>kPass</label>
+    <input name="kPass" #kPass="ngModel" [(ngModel)]="serviceKor.formKorisnik.kPass">
+  </div>
+  <div class="f-group">
+    <label>kDrzava</label>
+    <input name="kDrzava" #kDrzava="ngModel" [(ngModel)]="serviceKor.formKorisnik.kDrzava">
+  </div>
+  <div class="f-group">
+    <label>kGrad</label>
+    <input name="kGrad" #kGrad="ngModel" [(ngModel)]="serviceKor.formKorisnik.kGrad">
+  </div>
+  <div class="f-group">
+    <label>kUlica</label>
+    <input name="kUlica" #kUlica="ngModel" [(ngModel)]="serviceKor.formKorisnik.kUlica">
+  </div>
+  <div class="f-group">
+    <label>kBroj</label>
+    <input name="kBroj" #kBroj="ngModel" [(ngModel)]="serviceKor.formKorisnik.kBroj">
+  </div>
+  <button type="submit">UBACI KORISNIKA</button>
+</form>
