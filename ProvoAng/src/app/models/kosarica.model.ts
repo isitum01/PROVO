@@ -1,5 +1,5 @@
 export class Kosarica {
-    nID: number;
+    nID?: number;
     pID: number;
     proKolicina: number;
     proIznos: number;
