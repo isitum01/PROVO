@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c9fa9603b36a481aabab71b9f8092625" Name="Diagram1">
+        <EntityTypeShape EntityType="ProvoDBModel.Korisnici" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProvoDBModel.Kosarica" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProvoDBModel.Narudzbe" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProvoDBModel.Popusti" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProvoDBModel.Proizvodi" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="ProvoDBModel.FK_Narudzbe_Korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="ProvoDBModel.FK_Kosarica_Narudzbe" ManuallyRouted="false" />
+        <AssociationConnector Association="ProvoDBModel.FK_Kosarica_Proizvodi" ManuallyRouted="false" />
+        <AssociationConnector Association="ProvoDBModel.FK_Narudzbe_Popusti" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
