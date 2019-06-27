@@ -199,3 +199,6 @@ ProvoAPI/packages/Microsoft.AspNet.WebApi.HelpPage.5.2.4/Content/Areas/HelpPage/
 ProvoAPI/packages/Microsoft.AspNet.WebApi.HelpPage.5.2.4/Content/Areas/HelpPage/Views/Help/DisplayTemplates/ImageSample.cshtml.pp
 ProvoAPI/packages/Microsoft.AspNet.WebApi.HelpPage.5.2.4/Content/Areas/HelpPage/ModelDescriptions/ModelNameHelper.cs.pp
 ProvoAPI/packages/Microsoft.AspNet.WebApi.HelpPage.5.2.4/Content/Areas/HelpPage/SampleGeneration/HelpPageSampleGenerator.cs.pp
+ProvoAPI/.vs/ProvoAPI/v15/.suo
+ProvoAPI/ProvoAPI/obj/Debug/ProvoAPI.dll
+ProvoAPI/ProvoAPI/obj/Debug/ProvoAPI.pdb
