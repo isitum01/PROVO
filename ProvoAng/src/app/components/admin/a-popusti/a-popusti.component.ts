@@ -13,8 +13,8 @@ export class APopustiComponent implements OnInit {
   constructor(private servicePop: PopustiService) { }
 
   ngOnInit() {
-    this.servicePop.getPopust();
     this.resetForm();
+    this.servicePop.getPopust();
   }
   resetForm(form?: NgForm) {
     if (form != null)
@@ -27,7 +27,7 @@ export class APopustiComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (form.value.pID == null){
+    if (form.value.popID == null){
       this.insertPopust(form);
     }
     else
@@ -40,8 +40,8 @@ export class APopustiComponent implements OnInit {
       this.resetForm(form);
     });
   }
-  editPopust(pro: Popust) {
-    this.servicePop.formPopust = Object.assign({},pro);
+  editPopust(pop: Popust) {
+    this.servicePop.formPopust = Object.assign({},pop);
   }
   updatePopust(form: NgForm) {
     this.servicePop.putPopust(form.value).subscribe(res => {
