@@ -1,3 +1,35 @@
-<p>
-  a-popusti works!
-</p>
+<div class="comp-container">
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th scope="col">pID</th>
+        <th scope="col">pNaziv</th>
+        <th scope="col">popIznos</th>
+        <th scope="col">pStanje</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pop of servicePop.listPop">
+        <td scope="row" (click)="editPopust(pop)">{{pop.popID}}</td>
+        <td (click)="editPopust(pop)">{{pop.popKod}}</td>
+        <td (click)="editPopust(pop)">{{pop.popIznos}}</td>
+        <td><button (click)="removePopust(pop.pID)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="comp-form">
+    <form #formPop="ngForm" (submit)="onSubmit(formPop)">
+      <input type="hidden" name="popID" #popID="ngModel" [(ngModel)]="servicePop.formPopust.popID">
+      <div class="f-group">
+        <label>KOD:</label>
+        <input name="popKod" #popKod="ngModel" [(ngModel)]="servicePop.formPopust.popKod" class="form-control">
+      </div>
+      <div class="f-group">
+        <label>Iznos:</label>
+        <input name="popIznos" #popIznos="ngModel" [(ngModel)]="servicePop.formPopust.popIznos" class="form-control">
+      </div>
+      <button type="submit">UBACI Popust</button>
+    </form>
+  </div>
+</div>
