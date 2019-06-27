@@ -1,5 +1,5 @@
 export class Korisnik {
-    kID: number;
+    kID?: number;
     kIme: string;
     kPrezime: string;
     kEmail: string;
