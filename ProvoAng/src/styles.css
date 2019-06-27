@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+.ul-container{
+    background-color: rgb(111, 111, 255);
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: left;
+    list-style: none;
+}
+ul li{
+    margin:auto 2rem;
+    border:auto 2rem;
+}
+
+html{
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    width: 100%;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size: .8rem;
+    font-weight: bold;
+}
+.a-container{
+    display: flex;
+}
+.a-side{
+    flex-basis: 15%;
+    background-color: rgb(63, 63, 63);
+}
+.ulAdmin{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+.ulAdmin li{
+    border-bottom: 2px solid rgb(100, 100, 100);
+    padding: 1rem;
+    margin: 0;
+    display: inline-block;
+}
+.a-dash{
+    border: 2px solid purple;
+    flex-basis: 85%;
+}
+.comp-container{
+    display: flex;
+}
+.comp-table{
+    flex-basis: 65%;
+    /* margin: 1rem; */
+    border-collapse: collapse;
+}
+table, th, td{
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+}
+th{
+    background-color: rgb(111, 111, 255);
+}
+tr:hover{
+    background-color: rgb(111, 111, 255);
+}
+.comp-form{
+    /* margin: 1rem auto; */
+    border: 2px solid black;
+    flex-basis: 30%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
