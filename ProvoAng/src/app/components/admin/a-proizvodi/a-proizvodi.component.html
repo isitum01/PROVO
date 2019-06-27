@@ -1,0 +1,40 @@
+<div class="comp-container">
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th scope="col">pID</th>
+        <th scope="col">pNaziv</th>
+        <th scope="col">pCijena</th>
+        <th scope="col">pStanje</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pro of servicePro.listPro">
+        <td scope="row" (click)="editProizvod(pro)">{{pro.pID}}</td>
+        <td (click)="editProizvod(pro)">{{pro.pNaziv}}</td>
+        <td (click)="editProizvod(pro)">{{pro.pCijena}}</td>
+        <td (click)="editProizvod(pro)">{{pro.pStanje}}</td>
+        <td><button (click)="removeProizvod(pro.pID)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="comp-form">
+    <form #formPro="ngForm" (submit)="onSubmit(formPro)">
+      <!-- <input type="hidden" name="pID" #pID="ngModel" [(ngModel)]="servicePro.formProizvod.pID"> -->
+      <div class="f-group">
+        <label>Naziv:</label>
+        <input name="pNaziv" #pNaziv="ngModel" [(ngModel)]="servicePro.formProizvod.pNaziv" class="form-control">
+      </div>
+      <div class="f-group">
+        <label>Cijena:</label>
+        <input name="pCijena" #pCijena="ngModel" [(ngModel)]="servicePro.formProizvod.pCijena" class="form-control">
+      </div>
+      <div class="f-group">
+        <label>Stanje:</label>
+        <input name="pStanje" #pStanje="ngModel" [(ngModel)]="servicePro.formProizvod.pStanje" class="form-control">
+      </div>
+      <button type="submit">UBACI PROIZVOD</button>
+    </form>
+  </div>
+</div>
