@@ -1,5 +1,5 @@
 export class Proizvod {
-    pID: number;
+    pID?: number;
     pNaziv: string;
     pCijena: number;
     pStanje: number;
