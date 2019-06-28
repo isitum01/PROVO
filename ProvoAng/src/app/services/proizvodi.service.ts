@@ -9,7 +9,7 @@ export class ProizvodiService {
 
   formProizvod: Proizvod;
   listPro: Proizvod[];
-  readonly rootURL = "http://localhost:50963/api";
+  readonly rootURL = "http://localhost:55215/api";
 
   constructor(private http: HttpClient) { }
 
