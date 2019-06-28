@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class KorisniciService {
  
   formKorisnik: Korisnik;
-  readonly rootUrl = "http://localhost:50963/api";
+  readonly rootUrl = "http://localhost:55215/api";
   
   constructor(private http: HttpClient) { }
 
