@@ -4,9 +4,9 @@
       <thead>
         <tr>
           <th>pID</th>
-          <th>pNaziv</th>
-          <th>pCijena</th>
-          <th>pStanje</th>
+          <th>Naziv</th>
+          <th>Cijena</th>
+          <th>Stanje</th>
           <th></th>
         </tr>
       </thead>
@@ -14,34 +14,38 @@
         <tr *ngFor="let pro of servicePro.listPro">
           <td (click)="editProizvod(pro)">{{pro.pID}}</td>
           <td (click)="editProizvod(pro)">{{pro.pNaziv}}</td>
-          <td (click)="editProizvod(pro)">{{pro.pCijena}}</td>
-          <td (click)="editProizvod(pro)">{{pro.pStanje}}</td>
+          <td (click)="editProizvod(pro)">{{pro.pCijena | number:'1.2-2'}} <span style="font-size: .8rem">kn/kg</span>
+          </td>
+          <td (click)="editProizvod(pro)">{{pro.pStanje | number:'1.2-2'}} <span style="font-size: .8rem">kg</span></td>
           <td><button (click)="removeProizvod(pro.pID)">X</button></td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="comp-form">
-    <form #formPro="ngForm" (submit)="onSubmit(formPro)" autocomplete="off">
-      <div class="f-group">
-        <label>Naziv:</label>
-        <input name="pNaziv" #pNaziv="ngModel" [(ngModel)]="servicePro.formProizvod.pNaziv" class="form-control"
-          required>
-        <div *ngIf="pNaziv.invalid && pNaziv.touched">Prazno</div>
-      </div>
-      <div class="f-group">
-        <label>Cijena:</label>
-        <input name="pCijena" #pCijena="ngModel" [(ngModel)]="servicePro.formProizvod.pCijena" class="form-control"
-          type="number" required>
-        <div *ngIf="pCijena.invalid && pCijena.touched">Prazno</div>
-      </div>
-      <div class="f-group">
-        <label>Stanje:</label>
-        <input name="pStanje" #pStanje="ngModel" [(ngModel)]="servicePro.formProizvod.pStanje" class="form-control"
-          required>
-        <div *ngIf="pStanje.invalid && pStanje.touched">Prazno</div>
-      </div>
-      <button type="submit" [disabled]="formPro.invalid">UBACI PROIZVOD</button>
-    </form>
+    <div class="form-container">
+        <h3>NOVI PROIZVOD</h3>
+      <form #formPro="ngForm" (submit)="onSubmit(formPro)" autocomplete="off">
+        <div class="f-group">
+          <label>Naziv:</label>
+          <input name="pNaziv" #pNaziv="ngModel" [(ngModel)]="servicePro.formProizvod.pNaziv" class="form-control"
+            required>
+          <div *ngIf="pNaziv.invalid && pNaziv.touched">Prazno</div>
+        </div>
+        <div class="f-group">
+          <label>Cijena:</label>
+          <input name="pCijena" #pCijena="ngModel" [(ngModel)]="servicePro.formProizvod.pCijena" class="form-control"
+            type="number" required>
+          <div *ngIf="pCijena.invalid && pCijena.touched">Prazno</div>
+        </div>
+        <div class="f-group">
+          <label>Stanje:</label>
+          <input name="pStanje" #pStanje="ngModel" [(ngModel)]="servicePro.formProizvod.pStanje" class="form-control"
+            type="number" required>
+          <div *ngIf="pStanje.invalid && pStanje.touched">Prazno</div>
+        </div>
+        <button type="submit" [disabled]="formPro.invalid">UBACI PROIZVOD</button>
+      </form>
+    </div>
   </div>
 </div>
