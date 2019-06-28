@@ -9,7 +9,7 @@ export class PopustiService {
 
   formPopust: Popust;
   listPop: Popust[];
-  readonly rootURL = "http://localhost:50963/api";
+  readonly rootURL = "http://localhost:55215/api";
 
   constructor(private http: HttpClient) { }
 
