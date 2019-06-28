@@ -1,18 +1,18 @@
-.ul-container{
+/*.ul-container{
     background-color: rgb(111, 111, 255);
     margin: 0;
 }
 ul{
-    margin: 0;
+     margin: 0;
     padding: 1rem;
     display: flex;
     justify-content: left;
-    list-style: none;
+    list-style: none; 
 }
 ul li{
-    margin:auto 2rem;
-    border:auto 2rem;
-}
+     margin:auto 2rem;
+    border:auto 2rem; 
+}*/
 
 html{
     width: 100%;
@@ -21,49 +21,49 @@ html{
 body{
     width: 100%;
     margin: 0;
-}
+}/*
 a{
-    text-decoration: none;
+    /* text-decoration: none;
     color: white;
     font-size: .8rem;
-    font-weight: bold;
-}
+    font-weight: bold; 
+}/*
 .a-container{
     display: flex;
-}
+}/*
 .a-side{
     flex-basis: 15%;
     background-color: rgb(63, 63, 63);
-}
+}/*
 .ulAdmin{
     padding: 0;
     display: flex;
     flex-direction: column;
     list-style: none;
-}
+}/*
 .ulAdmin li{
     border-bottom: 2px solid rgb(100, 100, 100);
     padding: 1rem;
     margin: 0;
     display: inline-block;
-}
+}/*
 .a-dash{
     border: 2px solid purple;
     flex-basis: 85%;
-}
+}/*
 .comp-container{
     border: 2px solid green;
     display: flex;
-}
+}/*
 .comp-table{
-    border: 2px solid yellow;
-    flex-basis: 70%;
+    /* border: 2px solid yellow; */
+   /* flex-basis: 70%;*/
     /* border-radius: 1rem; */
     /* display: flex; */
     /* justify-content: center; */
-    /* margin: 1rem; */
-}
-table{
+    /* margin: 1rem; 
+}*/
+/* table{
     display: table;
     border-radius: 1rem;
     border-style: hidden; 
@@ -72,11 +72,11 @@ table{
     border-collapse: collapse;
     width: 80%;
     overflow: hidden;
-}
-thead{
-    overflow: hidden;
-    height: 2rem;
-    /* background-color: rgb(111, 111, 255);  */
+} */
+/* thead{ */
+    /* overflow: hidden;
+    height: 2rem; */
+    /* background-color: rgb(111, 111, 255);  
 }
 thead tr{
     z-index: -1;
@@ -87,23 +87,23 @@ thead tr{
     box-shadow: 0 0 0 1px;
 }
 th, td{
-    /* border: 1px solid black; */
+    /* border: 1px solid black; 
     text-align: center;
     cursor: pointer;
 }
 tr:hover{
     background-color: rgb(111, 111, 255);
-}
-.comp-form{
-    border: 2px solid red;
+}*/
+/*.comp-form{
+    /* border: 2px solid red; */
     /* margin: 1rem auto; */
-    flex-basis: 30%;
-}
-form{
+  /*  flex-basis: 30%;
+}*/
+/*form{*//*
     border: 2px solid green;
     border-radius: 1rem;
     padding: 1rem;
     margin: 1rem;
     display: flex;
     flex-direction: column;
-}
+}*/
