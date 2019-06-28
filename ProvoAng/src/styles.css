@@ -1,3 +1,59 @@
+html{
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    width: 100%;
+    margin: 0;
+}
+app-navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+nav{
+    background-color: #217C7E;
+    margin: 0;
+    display: flex;
+    height: 6rem;
+}
+.nav-left{
+    border: 2px solid green;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: flex-start;
+}
+.nav-right{
+    border: 2px solid green;
+    flex-basis: 50%;    
+    display: flex;
+    justify-content: flex-end;
+
+}
+ul{
+    border: 2px solid red;
+    display: flex;
+    list-style: none;
+}
+nav ul li{
+    margin: 1rem;
+}
+nav a, .a-side a{
+    color: #F3EFE0;
+    text-decoration: none;
+    font-weight: bold;
+}
+.a-container{
+    margin-top: 6rem;
+    border: 2px solid red;
+    display: flex;
+}
+.a-side{
+    flex-basis: 15%;
+    background-color: rgb(110, 110, 110);
+}
+
 /*.ul-container{
     background-color: rgb(111, 111, 255);
     margin: 0;
@@ -14,14 +70,11 @@ ul li{
     border:auto 2rem; 
 }*/
 
-html{
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-}
-body{
-    width: 100%;
-    margin: 0;
-}/*
+
+
+
+
+/*
 a{
     /* text-decoration: none;
     color: white;
