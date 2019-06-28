@@ -13,26 +13,23 @@ app-navbar{
     width: 100%;
 }
 nav{
-    background-color: #217C7E;
+    border: 2px solid rgb(76, 192, 120);
+    background-color: rgba(38, 143, 78);
     margin: 0;
     display: flex;
-    height: 6rem;
+    height: 5rem;
 }
 .nav-left{
-    border: 2px solid green;
     flex-basis: 50%;
     display: flex;
     justify-content: flex-start;
 }
 .nav-right{
-    border: 2px solid green;
     flex-basis: 50%;    
     display: flex;
     justify-content: flex-end;
-
 }
 ul{
-    border: 2px solid red;
     display: flex;
     list-style: none;
 }
@@ -40,26 +37,118 @@ nav ul li{
     margin: 1rem;
 }
 nav a, .a-side a{
-    color: #F3EFE0;
+    color: rgb(252, 249, 238);
     text-decoration: none;
     font-weight: bold;
 }
 .a-container{
-    margin-top: 6rem;
-    border: 2px solid red;
+    margin-top: 5rem;
     display: flex;
 }
 .a-side{
     flex-basis: 15%;
+    border: 2px solid rgb(150, 150, 150);
     background-color: rgb(110, 110, 110);
 }
 .a-side ul{
     flex-direction: column;
+    /* justify-content: stretch; */
+    /* align-items: stretch; */
     padding: 0;
+
+    /* padding-left: 1.5rem; */
 }
 .a-side ul li{
-    margin: 1rem auto;
+    /* margin-top: 1rem;  */
+    padding: 1rem;
+    /* border: 2px solid greenyellow; */
+    border-bottom: 1px solid rgb(150, 150, 150);
 }
+.a-dash{
+    flex-basis: 85%;
+}
+.comp-container{
+    display: flex;
+}
+.comp-table{
+    flex-basis: 65%;
+}
+.comp-form{
+    margin: 1rem auto;
+    flex-basis: 35%;
+}
+table{
+    width: 90%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: 1rem auto;
+    display: table;
+    border-radius: .5rem;
+    border-style: hidden; 
+    margin: 1rem auto;
+    border-collapse: collapse;
+    overflow: hidden; 
+}
+thead{
+    border-radius: 1rem;
+    background-color: rgba(38, 143, 78, 0.4);
+}
+tr:nth-child(even){
+    background-color: rgba(38, 143, 78, 0.1);
+}
+tr{
+    height: 2.5rem;
+    text-align: center;
+}
+tr:hover > td{
+    cursor: pointer;
+    background-color:rgba(38, 143, 78, 0.2);
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+}
+h3{
+    color: rgb(252, 249, 238);
+    background-color: rgba(38, 143, 78, 0.4);
+    margin: 0;
+    padding: 1rem;
+    border-top-left-radius: .35rem;
+    border-top-right-radius: .35rem;
+}
+form{
+    border: 2px solid rgba(38, 143, 78, 0.4);
+    font-weight: bold;
+    padding: 1rem;
+    /* border-radius: .5rem; */
+    /* display: flex;
+    flex-direction: column; */
+}
+.f-group{
+    /* border: 2px solid blue; */
+    margin: 1rem auto;
+    height: 2rem;
+    display: flex;
+    align-items: stretch;
+}
+label{
+    align-self: center;
+    flex-basis: 20%;
+}
+input{
+    width: 50%;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+form button{
+    margin: 1rem;
+    font-weight: bold;
+}
+
+
 
 /*.ul-container{
     background-color: rgb(111, 111, 255);
@@ -107,14 +196,7 @@ a{
     margin: 0;
     display: inline-block;
 }/*
-.a-dash{
-    border: 2px solid purple;
-    flex-basis: 85%;
-}/*
-.comp-container{
-    border: 2px solid green;
-    display: flex;
-}/*
+
 .comp-table{
     /* border: 2px solid yellow; */
    /* flex-basis: 70%;*/
