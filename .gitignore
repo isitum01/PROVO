@@ -320,3 +320,17 @@ ProvoAPI/ProvoAPI/obj/Debug/edmxResourcesToEmbed/Models/DBModels.ssdl
 ProvoAPI/ProvoAPI/obj/Debug/ProvoAPI.csproj.CopyComplete
 ProvoAPI/ProvoAPI/obj/Debug/ProvoAPI.csproj.FileListAbsolute.txt
 ProvoAPI/ProvoAPI/obj/Debug/ProvoAPI.pdb
+ProvoAPI/packages/Microsoft.AspNet.Cors.5.2.7/.signature.p7s
+ProvoAPI/packages/Microsoft.AspNet.Cors.5.2.7/Microsoft.AspNet.Cors.5.2.7.nupkg
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Client.5.2.7/.signature.p7s
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Client.5.2.7/lib/net45/System.Net.Http.Formatting.xml
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Client.5.2.7/lib/netstandard2.0/System.Net.Http.Formatting.xml
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Client.5.2.7/lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Client.5.2.7/Microsoft.AspNet.WebApi.Client.5.2.7.nupkg
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Core.5.2.7/.signature.p7s
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Core.5.2.7/Content/web.config.transform
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Core.5.2.7/lib/net45/System.Web.Http.xml
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Core.5.2.7/Microsoft.AspNet.WebApi.Core.5.2.7.nupkg
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Cors.5.2.7/.signature.p7s
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Cors.5.2.7/lib/net45/System.Web.Http.Cors.xml
+ProvoAPI/packages/Microsoft.AspNet.WebApi.Cors.5.2.7/Microsoft.AspNet.WebApi.Cors.5.2.7.nupkg
