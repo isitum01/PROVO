@@ -53,6 +53,13 @@ nav a, .a-side a{
     flex-basis: 15%;
     background-color: rgb(110, 110, 110);
 }
+.a-side ul{
+    flex-direction: column;
+    padding: 0;
+}
+.a-side ul li{
+    margin: 1rem auto;
+}
 
 /*.ul-container{
     background-color: rgb(111, 111, 255);
