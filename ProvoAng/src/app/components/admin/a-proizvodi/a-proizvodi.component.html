@@ -3,16 +3,16 @@
     <table>
       <thead>
         <tr>
-          <th scope="col">pID</th>
-          <th scope="col">pNaziv</th>
-          <th scope="col">pCijena</th>
-          <th scope="col">pStanje</th>
+          <th>pID</th>
+          <th>pNaziv</th>
+          <th>pCijena</th>
+          <th>pStanje</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let pro of servicePro.listPro">
-          <td scope="row" (click)="editProizvod(pro)">{{pro.pID}}</td>
+          <td (click)="editProizvod(pro)">{{pro.pID}}</td>
           <td (click)="editProizvod(pro)">{{pro.pNaziv}}</td>
           <td (click)="editProizvod(pro)">{{pro.pCijena}}</td>
           <td (click)="editProizvod(pro)">{{pro.pStanje}}</td>
